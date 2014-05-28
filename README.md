@@ -44,13 +44,13 @@ The same menu with Hebrew locale (notice the change in [direction](https://en.wi
 
 Feel free to contribute to this software ☺. Just fork it, make the changes you want and send a pull request.
 
-I’m just a novice Python programmer. I’m aware the code isn’t elegant; if you have suggestions for making it more readable, efficient, neat or Pythonic, don’t hesitate.
+I’m a novice Python programmer. I’m aware the code isn’t elegant; if you have suggestions for making it more readable, efficient, neat or Pythonic, don’t hesitate.
 
 
 
 ## Dependencies
 
-* [PyGObject](https://live.gnome.org/PyGObject) 3, for GUI (Arch `pygobject-devel`; Fedora `pygobject3`; Ubuntu `python-gobject`)
+* [PyGObject](https://live.gnome.org/PyGObject) version 3, for GUI (Arch `pygobject-devel`; Fedora `pygobject3`; Ubuntu `python-gobject`)
 * [PyXDG](http://freedesktop.org/wiki/Software/pyxdg/), for parsing `.desktop` files (Arch and Ubuntu `python-xdg`; Fedora `pyxdg`)
 
 
