@@ -159,6 +159,8 @@ Exec=true""")
                 str(random.randrange(len(self.__desktop_files))))
             self.__iconview.select_path(x)
             self.__iconview.set_cursor(x, None, False)
+        elif key in ["Escape", "q", "Q", "F10"]:
+            quit()
 
 if len(sys.argv) == 2:
     Freshest(profile=sys.argv[1])
