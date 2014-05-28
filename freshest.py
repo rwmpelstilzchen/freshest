@@ -5,6 +5,7 @@ from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository import Gtk, GdkPixbuf
 import os
 import json
+import random
 import subprocess
 import sys
 from xdg import DesktopEntry
@@ -62,7 +63,9 @@ class Freshest:
                         "gtk-execute", config["iconsize"], 0)
             liststore.append([pixbuf, x.getName()])
 
-        iconview.connect("selection_changed", self.on_icon_view_selection_changed)
+        iconview.connect("selection_changed",
+                         self.on_icon_view_selection_changed)
+        self.__window.connect("key_press_event", self.on_key_press)
 
         scrolledwindow.add(iconview)
 
@@ -149,6 +152,14 @@ Exec=true""")
         f.close()
 
         x = DesktopEntry.DesktopEntry(filename=selected_application)
+        subprocess.Popen(x.getExec(), shell=True)
+        quit()
+
+    def on_key_press(self, widget, item):
+        # TODO: catch only "r"
+        random_application = self.__desktop_files[
+            random.randrange(len(self.__desktop_files))]
+        x = DesktopEntry.DesktopEntry(filename=random_application)
         subprocess.Popen(x.getExec(), shell=True)
         quit()
 
