@@ -46,6 +46,7 @@ class Freshest:
         iconview.set_pixbuf_column(0)
         iconview.set_text_column(1)
         iconview.set_item_width(config["columnwidth"])
+        iconview.set_activate_on_single_click(True)
 
         for f in self.__desktop_files:
             x = DesktopEntry.DesktopEntry(filename=f)
@@ -63,8 +64,7 @@ class Freshest:
                         "gtk-execute", config["iconsize"], 0)
             liststore.append([pixbuf, x.getName()])
 
-        iconview.connect("selection_changed",
-                         self.on_icon_view_selection_changed)
+        iconview.connect("item-activated", self.on_item_activated)
         self.__window.connect("key_press_event", self.on_key_press)
 
         scrolledwindow.add(iconview)
@@ -129,9 +129,6 @@ Exec=true""")
         f = open(self.listfile, 'w')
         json.dump(self.__desktop_files, f, indent=4 * ' ')
         f.close()
-
-    def on_icon_view_selection_changed(self, widget):
-        self.on_item_activated(widget, widget.get_selected_items()[0])
 
     def on_item_activated(self, widget, item):
         selected_application = self.__desktop_files[int(item.to_string())]
