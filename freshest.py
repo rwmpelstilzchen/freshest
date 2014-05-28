@@ -56,7 +56,7 @@ class Freshest:
                     pixbuf = Pixbuf.new_from_file(x.getIcon())
                     pixbuf = pixbuf.scale_simple(
                         config["iconsize"], config["iconsize"],
-                        GdkPixbuf.InterpType.BILINEAR)
+                        GdkPixbuf.InterpType.NEAREST)
                 except:
                     pixbuf = Gtk.IconTheme.get_default().load_icon(
                         "gtk-execute", config["iconsize"], 0)
