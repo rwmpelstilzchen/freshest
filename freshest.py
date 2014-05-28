@@ -2,7 +2,7 @@
 
 import glob
 from gi.repository.GdkPixbuf import Pixbuf
-from gi.repository import Gtk, GdkPixbuf
+from gi.repository import Gtk, Gdk, GdkPixbuf
 import os
 import json
 import random
@@ -155,13 +155,14 @@ Exec=true""")
         subprocess.Popen(x.getExec(), shell=True)
         quit()
 
-    def on_key_press(self, widget, item):
-        # TODO: catch only "r"
-        random_application = self.__desktop_files[
-            random.randrange(len(self.__desktop_files))]
-        x = DesktopEntry.DesktopEntry(filename=random_application)
-        subprocess.Popen(x.getExec(), shell=True)
-        quit()
+    def on_key_press(self, widget, event):
+        key = Gdk.keyval_name(event.keyval)
+        if key == "r":
+            random_application = self.__desktop_files[
+                random.randrange(len(self.__desktop_files))]
+            x = DesktopEntry.DesktopEntry(filename=random_application)
+            subprocess.Popen(x.getExec(), shell=True)
+            quit()
 
 if len(sys.argv) == 2:
     Freshest(profile=sys.argv[1])
