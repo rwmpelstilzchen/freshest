@@ -1,6 +1,6 @@
-# Freshest
+# <img src="icon.png" width="64px" /> Freshest
 
-<img src="icon.png" width="64px" style="float: left" />**Freshest** is a minimalist graphical customizable application menu/launcher with a simple-but-effective automatic reordering mechanism. It is written in Python with GTK+.
+**Freshest** is a minimalist graphical customizable application menu/launcher with a simple-but-effective automatic reordering mechanism. It is written in Python with GTK+.
 
 How does it work? When you launch an application, it is moved to the head of the list. This way the most heavily used applications are concentrated in one end, and the least used ones in the other. This has two-way benefit, as most of the time you’ll want to use an application which you use frequently (duh!…), but sometimes you’d rather choose to launch one which gathers dust (e.g. that game you’ve downloaded months ago but haven’t got the chance to play and now you find it awesome).
 
