@@ -30,6 +30,16 @@ You can select an application either using a mouse or a keyboard. Pressing `r` s
 
 
 
+## Screenshots
+
+A example of a populated menu, with English locale:
+![English menu](readme-files/english.png)
+
+The same menu with Hebrew locale:
+![Hebrew menu](readme-files/hebrew.png)
+
+
+
 ## Contribution
 
 Feel free to contribute to this software ☺. Just fork it, make the changes you want and send a pull request.
