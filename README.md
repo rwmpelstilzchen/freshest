@@ -35,7 +35,7 @@ You can select an application either using a mouse or a keyboard. Pressing `r` s
 A example of a populated menu, with English locale:
 ![English menu](readme-files/english.png)
 
-The same menu with Hebrew locale:
+The same menu with Hebrew locale (notice the change in [direction](https://en.wikipedia.org/wiki/Bi-directional_text)):
 ![Hebrew menu](readme-files/hebrew.png)
 
 
