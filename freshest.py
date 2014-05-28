@@ -41,12 +41,12 @@ class Freshest:
         scrolledwindow = Gtk.ScrolledWindow()
 
         liststore = Gtk.ListStore(Pixbuf, str)
-        iconview = Gtk.IconView.new()
-        iconview.set_model(liststore)
-        iconview.set_pixbuf_column(0)
-        iconview.set_text_column(1)
-        iconview.set_item_width(config["columnwidth"])
-        iconview.set_activate_on_single_click(True)
+        self.__iconview = Gtk.IconView.new()
+        self.__iconview.set_model(liststore)
+        self.__iconview.set_pixbuf_column(0)
+        self.__iconview.set_text_column(1)
+        self.__iconview.set_item_width(config["columnwidth"])
+        self.__iconview.set_activate_on_single_click(True)
 
         for f in self.__desktop_files:
             x = DesktopEntry.DesktopEntry(filename=f)
@@ -64,10 +64,10 @@ class Freshest:
                         "gtk-execute", config["iconsize"], 0)
             liststore.append([pixbuf, x.getName()])
 
-        iconview.connect("item-activated", self.on_item_activated)
+        self.__iconview.connect("item-activated", self.on_item_activated)
         self.__window.connect("key_press_event", self.on_key_press)
 
-        scrolledwindow.add(iconview)
+        scrolledwindow.add(self.__iconview)
 
         self.__window.connect("destroy", lambda w: Gtk.main_quit())
 
@@ -155,11 +155,10 @@ Exec=true""")
     def on_key_press(self, widget, event):
         key = Gdk.keyval_name(event.keyval)
         if key == "r":
-            random_application = self.__desktop_files[
-                random.randrange(len(self.__desktop_files))]
-            x = DesktopEntry.DesktopEntry(filename=random_application)
-            subprocess.Popen(x.getExec(), shell=True)
-            quit()
+            x = Gtk.TreePath.new_from_string(
+                str(random.randrange(len(self.__desktop_files))))
+            self.__iconview.select_path(x)
+            self.__iconview.set_cursor(x, None, False)
 
 if len(sys.argv) == 2:
     Freshest(profile=sys.argv[1])

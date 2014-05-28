@@ -26,6 +26,8 @@ Each profile has:
 
 Desktop entry files can be easily edited with any text editor. If you want a specialized tool, give [this](https://github.com/MicahCarrick/desktop-entry-editor) a try.
 
+You can select an application either using a mouse or a keyboard. Pressing `r` selects a random application.
+
 
 
 ## Contribution
