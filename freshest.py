@@ -154,7 +154,8 @@ Exec=true""")
 
     def on_key_press(self, widget, event):
         key = Gdk.keyval_name(event.keyval)
-        if key == "r":
+        print(key)
+        if key in ["r", "asterisk", "KP_Multiply"]:
             x = Gtk.TreePath.new_from_string(
                 str(random.randrange(len(self.__desktop_files))))
             self.__iconview.select_path(x)
